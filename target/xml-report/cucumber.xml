@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="7.883">
+    <testcase classname="As a user, I want to access the Ticket List through an API connection." name="When a GET request is sent to the user/ticket/list endpoint with valid authorization information," time="7.419">
+        <system-out>
+            <![CDATA[Given The API user sets "user/ticket/list" path parameters..................passed
+And The API user saves the response from the user ticket list endpoint with valid authorization information.passed
+Then The API user verifies that the status code is 200......................passed
+And The API user verifies that the remark information in the response body is "success".passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>

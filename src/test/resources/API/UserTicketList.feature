@@ -18,7 +18,7 @@ Feature: As a user, I want to access the Ticket List through an API connection.
 
     Given The API user sets "user/ticket/list" path parameters
     Then The API user records the response with invalid authorization information, verifies that the status code is '401' and confirms that the error information is Unauthorized
-  #Api kullanicisi responsei geçersiz authorization bilgisi ile kaydeder, status codeun 401 ve error bilgisinin Unauthorized oldugunu dogrular
+    #Api kullanicisi responsei geçersiz authorization bilgisi ile kaydeder, status codeun 401 ve error bilgisinin Unauthorized oldugunu dogrular
 
   Scenario Outline: Verify the information returned in the response for the entity with id(x)
   (user_id, name, email, ticket, subject, status, priority, last_reply, created_at, updated_at)
@@ -26,7 +26,7 @@ Feature: As a user, I want to access the Ticket List through an API connection.
     Given The API user sets "user/ticket/list" path parameters
     And The API user saves the response from the user ticket list endpoint with valid authorization information
     Then Verify the information of the one with the id <dataIndex> in the API user response body: <user_id>, "<name>", "<email>", "<ticket>", "<subject>", <status>, <priority>, "<last_reply>", "<created_at>", "<updated_at>"
-    # API kullanıcı response body icindeki <dataIndex> indexe sahip olanın bilgilerini doğrular: <user_id>, "<name>", "<email>", "<ticket>", "<subject>", <status>, <priority>, "<last_reply>", "<created_at>", "<updated_at>"
+    #API kullanıcı response body icindeki <dataIndex> indexe sahip olanın bilgilerini doğrular: <user_id>, "<name>", "<email>", "<ticket>", "<subject>", <status>, <priority>, "<last_reply>", "<created_at>", "<updated_at>"
 
     Examples:
       | dataIndex | user_id | name        | email                   | ticket | subject     | status | priority | last_reply          | created_at                  | updated_at                  |
