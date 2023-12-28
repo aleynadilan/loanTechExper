@@ -12,7 +12,7 @@ Feature: As a user, I should be able to delete a user ticket record in the syste
 
     Examples:
       | id  |
-      | 123 |
+      | 156 |
 
 
   Scenario: When a DELETE request with valid authorization information and no 'id' is sent to the
@@ -63,4 +63,4 @@ Feature: As a user, I should be able to delete a user ticket record in the syste
 
     Examples:
       | id  |
-      | 123 |
+      | 156 |

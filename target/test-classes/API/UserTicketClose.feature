@@ -13,7 +13,7 @@ Feature: As a user, I want to be able to update the close information of a regis
 
     Examples:
       | id  |
-      | 129 |
+      | 153 |
 
 
   Scenario: When a PATCH request with valid authorization information and no 'id' is sent to the
@@ -39,7 +39,7 @@ Feature: As a user, I want to be able to update the close information of a regis
       | id  |
       | 591 |
 
-
+  @API
   Scenario Outline: Verify that when a PATCH request with invalid authorization information and the correct
   'id' is sent to the 'user/ticket/close/{{id}}' endpoint, the returned status code is 401, and the error
   message in the response body is "Unauthorized request"
@@ -63,3 +63,5 @@ Feature: As a user, I want to be able to update the close information of a regis
     And The API user Verifies that the status information in the response body is <status>
 
     Examples:
+      | id  | status |
+      | 153 | 3      |

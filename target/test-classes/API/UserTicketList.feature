@@ -1,5 +1,5 @@
 Feature: As a user, I want to access the Ticket List through an API connection.
-@API
+
   Scenario: When a GET request is sent to the user/ticket/list endpoint with valid authorization information,
   the returned status code should be 200, and the response remark should be verified as "success"
 

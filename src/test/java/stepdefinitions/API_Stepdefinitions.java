@@ -241,5 +241,58 @@ public class API_Stepdefinitions {
 
         response.prettyPrint();
     }
+
+    @Then("The API user saves the response from the user ticket close endpoint with invalid authorization information and verifies that the status code is '401' and the error message is Unauthorized")
+    public void theAPIUserSavesTheResponseFromTheUserTicketCloseEndpointWithInvalidAuthorizationInformationAndVerifiesThatTheStatusCodeIsAndTheErrorMessageIsUnauthorized() {
+        try {
+            response = given()
+                    .spec(spec)
+                    .header("Accept", "application/json")
+                    .headers("Authorization", "Bearer " + ConfigReader.getProperty("invalidToken"))
+                    .when()
+                    .patch(fullPath);
+        } catch (Exception e) {
+            mesaj = e.getMessage();
+        }
+        System.out.println("mesaj: " + mesaj);
+
+        Assert.assertTrue(mesaj.contains("status code: 401, reason phrase: Unauthorized"));
+    }
+
+    @Then("The API user Verifies that the status information in the response body is {int}")
+    public void the_apı_user_verifies_that_the_status_information_in_the_response_body_is(int status) {
+        jsonPath=response.jsonPath();
+
+        Assert.assertEquals(status,jsonPath.getInt("data.status"));
+    }
+
+    @And("The API user saves the response from the user ticket delete endpoint with valid authorization information")
+    public void theAPIUserSavesTheResponseFromTheUserTicketDeleteEndpointWithValidAuthorizationInformation() {
+        response = given()
+                .spec(spec)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + Authentication.generateToken("user"))
+                .when()
+                .delete(fullPath);
+
+        response.prettyPrint();
+    }
+
+    @Then("The API user saves the response from the user ticket delete endpoint with invalid authorization information and confirms that the status code is '401' and the error message is Unauthorized")
+    public void theAPIUserSavesTheResponseFromTheUserTicketDeleteEndpointWithInvalidAuthorizationInformationAndConfirmsThatTheStatusCodeIsAndTheErrorMessageIsUnauthorized() {
+        try {
+            response = given()
+                    .spec(spec)
+                    .header("Accept", "application/json")
+                    .headers("Authorization", "Bearer " + ConfigReader.getProperty("invalidToken"))
+                    .when()
+                    .delete(fullPath);
+        } catch (Exception e) {
+            mesaj = e.getMessage();
+        }
+        System.out.println("mesaj: " + mesaj);
+
+        Assert.assertTrue(mesaj.contains("status code: 401, reason phrase: Unauthorized"));
+    }
 }
 
